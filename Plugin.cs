@@ -1,5 +1,4 @@
 ﻿using BepInEx;
-using GameNetcodeStuff;
 using HarmonyLib;
 
 namespace NoNametags
@@ -21,15 +20,5 @@ namespace NoNametags
 
     public static class Constants {
         public const string PLUGIN_UID = "games.braincells.modding.lethalcompnay.nonametags";
-    }
-
-    public class Patches {
-        [HarmonyPatch(typeof(PlayerControllerB), "ShowNameBillboard")]
-        class BillboardPatch {
-            static void Postfix(PlayerControllerB instance) {
-                instance.usernameAlpha.alpha = 0f;
-                instance.usernameCanvas.gameObject.SetActive(value: false);
-            }
-        }
     }
 }
